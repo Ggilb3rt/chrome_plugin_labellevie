@@ -7,7 +7,7 @@ Plugin Chrome permettant d'afficher les prix au kilo (ou au litre) des produits 
 Le plugin est en cours de dévellopement (elle n'est pas empaqueté), elle necessite de passer le naviguateur en mode développeur.
 ```bash
 cd folder/to/save/plugin
-git clone ...
+git clone https://github.com/Ggilb3rt/chrome_plugin_labellevie.git
 ```
 
 Dans Chrome (ou naviguateur basé sur Chromium)
