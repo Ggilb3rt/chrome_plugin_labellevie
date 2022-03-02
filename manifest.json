@@ -1,7 +1,7 @@
 {
 	"name": "La belle vie au kilo",
 	"description": "Affiche les prix des articles au kilo",
-	"version": "0.1",
+	"version": "0.2",
 	"manifest_version": 3,
 	"background": {
 		"service_worker": "background.js"

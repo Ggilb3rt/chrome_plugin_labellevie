@@ -1,6 +1,7 @@
 function getQuantity(text) {
 	const start = text.search(/\([0-9a-zA-Z ,.]{1,}\)/gm);
-	const sub = text.substring((start+1));
+	let sub = text.substring((start+1));
+
 	return sub.substring(0, sub.length - 1);
 }
 
@@ -20,16 +21,25 @@ function crossProduct(qt, price, weight) {
 function calculateKilo(qt, price) {
 	const weight = findWeight(qt);
 	qt = qt.replace(',', '.');
+
 	return crossProduct(qt, price, weight);
 }
 
 function calculateKiloMultiple(qt, price) {
+	let 	splitted = qt.split("x");
+	const	weigth = findWeight(splitted[1]);
+	splitted[1] = splitted[1].replace(',', '.');
+	const 	realQt = parseFloat(splitted[0]) * parseFloat(splitted[1]);
+
+	return crossProduct(realQt, price, weigth);
+}
+
+function calculateKiloNotMultiple(qt, price) {
 	let		splitted = qt.split(/,(.+)/);
 	if (!splitted[1])
 		return Math.fround(parseFloat(price) / parseFloat(splitted[0].substring(1))).toFixed(2);
 	const	weigth = findWeight(splitted[1]);
 	splitted[1] = splitted[1].replace(',', '.');
-	// const realQt = parseFloat(splitted[0].substring(1)) * parseFloat(splitted[1]);
 
 	return crossProduct(splitted[1], price, weigth);
 }
@@ -42,8 +52,10 @@ for(let i = 0; i < prices.length; i++)
 {
 	const	qt = getQuantity(descriptions[i].innerHTML);
 	let		kilo = calculateKilo(qt, prices[i].innerText);
-	if (isNaN(kilo))
+	if (qt.search(/[0-9]{1,} x [0-9]{1,}/gm) != -1)
 		kilo = calculateKiloMultiple(qt, prices[i].innerText);
+	if (isNaN(kilo))
+		kilo = calculateKiloNotMultiple(qt, prices[i].innerText);
 	// console.log(qt + " | " + prices[i].innerText);
 	prices[i].innerHTML = prices[i].innerHTML + " | " + kilo + "€/kg";
 }

@@ -33,12 +33,16 @@ Sur le site les descriptions de produits ne sont pas toujours cohérentes, par e
 - Piccolinis lardons et crème, Buitoni (x 9, 270 g )
 - Pizzetta 4 Formaggi, Buitoni (x 2, 185 g)
 
-	*Dans le premier cas le poids total de l'article est 270g, dans le seconds il est de 370g (2 * 185).
-Il a été choisi de considerer le premier cas comme étant valide, n'aillant pas pour le moment d'idée pour différencier le bon choix à faire.*
+	> *Dans le premier cas le poids total de l'article est 270g, dans le seconds il est de 370g (2 * 185).
+	> Il a été choisi de considerer le premier cas comme étant valide, n'aillant pas pour le moment d'idée > pour différencier le bon choix à faire.*
 
-- Feuilletés au Leerdamer et jambon, La Compagnie Artique (4 x 80 g)
+- ~~Feuilletés au Leerdamer et jambon, La Compagnie Artique (4 x 80 g)~~
 
-	*Ce cas de figure n'est pas pris en compte, ne pas se fier au résultat.*
+	>	~~*Ce cas de figure n'est pas pris en compte, ne pas se fier au résultat.*~~
+
+- Sacs poubelle 100% recyclé ultra résistant liens coulissants, U (20 x 30L)
+
+	>	*Considère que les sacs poubelles ne sont pas à la pièce*
 
 ### Lazy load
 Quand de nouveaux articles sont chargés via requete ajax le plugin ne calcul pas les prix de ces nouveaux articles.
