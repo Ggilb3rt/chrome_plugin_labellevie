@@ -1,0 +1,22 @@
+{
+	"name": "La belle vie au kilo",
+	"description": "Affiche les prix des articles au kilo",
+	"version": "0.1",
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "background.js"
+	},
+	"icons": {
+		"80" : "logo-mobile.png"
+	},
+	"host_permissions": ["*://*.labellevie.com/*"],
+	"permissions": [
+		"activeTab"
+	  ],
+	"content_scripts": [
+		{
+		  "matches": ["*://*.labellevie.com/*"],
+		  "js": ["content-script.js"]
+		}
+	  ]
+}
